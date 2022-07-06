@@ -36,6 +36,9 @@ class Stack:
         self.__length -= 1
         return node.value
 
+    def is_empty(self):
+        return bool(self)
+
     def __iter__(self):
         while True:
             tmp = self.pop()
