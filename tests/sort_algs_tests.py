@@ -1,15 +1,15 @@
 from unittest import TestCase, main
 from random import randint
 
-from alghoritms.sort_algs import selection_sort
+from alghoritms.sort_algs import selection_sort, insertion_sort, bubble_sort
 
-sort_methods = [selection_sort]
+sort_methods = [insertion_sort, selection_sort, bubble_sort]
 
 
 class SortAlgTest(TestCase):
 
     def test_sort(self):
-        test_list = list(randint(1, 100) for i in range(1000))
+        test_list = list(randint(-100, 100) for i in range(randint(10, 15)))
 
         for func in sort_methods:
             self.assertEqual(func(test_list), sorted(test_list))
