@@ -30,9 +30,18 @@ class Stack:
     def pop(self):
         """removes and returns item from the top of the stack"""
         node = self.__head
+        if node is None:
+            return node
         self.__head = self.__head.previous
         self.__length -= 1
         return node.value
+
+    def __iter__(self):
+        while True:
+            tmp = self.pop()
+            if tmp is None:
+                break
+            yield tmp
 
     def __len__(self):
         return self.__length
@@ -43,10 +52,16 @@ class Stack:
 
 if __name__ == "__main__":
     stack = Stack()
-    for i in range(10):
-        stack.push(i)
-
-    while stack:
-        print(stack.pop())
+    stack.push(1)
+    stack.push(2)
+    stack.push(3)
+    stack.push(4)
+    print(len(stack))
+    print(bool(stack))
+    stack.pop()
+    for i in stack:
+        print(i)
+    print(len(stack))
+    print(bool(stack))
 
 
